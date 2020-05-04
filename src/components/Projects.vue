@@ -104,7 +104,7 @@ export default {
                 {
                     name:"space-bullet",
                     class:["tous","js"],
-                    image:"/img/space.png",
+                    image:"img/space.png",
                     description:"Ce projets à été conçu lors de la GameJam 2019 qui s'est déroulé à l'ifa lors de ma formation de développeur web. C'est un petit jeu web créé avec le framework phaser. J'ai créé ce jeu avec un collègue: Cédric Famibelle, le jeu est hébergé sur son serveur.",
                     show: true  ,
                     lien:"https://cedric-famibelle.fr/space_bullet/"                 
@@ -120,15 +120,15 @@ export default {
                 {
                     name:"shop_template",
                     class:["tous","php"],
-                    image:"/img/tchat.png",
+                    image:"img/shop_theme.png",
                     description:'Ce site est le projet actuel sur lequel je travail. C\'est un template personnalisable de boutique en ligne full responsive, l\'accès à l\'espace admin est libre pour avoir un aperçu. Il est développé from scratch sans framework en POO avec l\'architecture MVC. ',
                     show: true,
-                    lien:'http://localhost/template_shop'
+                    lien:'http://jeremy-joseph.cf'
                 },
                 {
                     name:"yanaswag",
                     class:["tous","wordpress" ] ,
-                    image:'/img/screen_yanaswag.npmpng',
+                    image:'img/screen_yanaswag.png',
                     description:"Ce projet est une boutique en ligne que j'ai créé pour un client. J'ai utilisé wordpress pour créer le site, j'ai hébergé le site sur un serveur google que j'ai moi même paramétré. J'ai ainsi du acheter le nom de domaine et le certifier avec letsencrypt.",
                     show: true,
                     lien:"https:www.yanaswag.ml"                   
