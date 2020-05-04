@@ -109,13 +109,21 @@ export default {
                     show: true  ,
                     lien:"https://cedric-famibelle.fr/space_bullet/"                 
                 },
+                // {
+                //     name:"tchat-room",
+                //     class:["tous","js"],
+                //     image:"/img/tchat.png",
+                //     description:'C\'est une petite application de tchat instantané que j\'ai créé avec Node js, Express et Socket.io. ',
+                //     show: true,
+                //     lien:'http://localhost:8000'
+                // },
                 {
-                    name:"tchat-room",
-                    class:["tous","js"],
+                    name:"shop_template",
+                    class:["tous","php"],
                     image:"/img/tchat.png",
-                    description:'C\'est une petite application de tchat instantané que j\'ai créé avec Node js, Express et Socket.io. ',
+                    description:'Ce site est le projet actuel sur lequel je travail. C\'est un template personnalisable de boutique en ligne full responsive, l\'accès à l\'espace admin est libre pour avoir un aperçu. Il est développé from scratch sans framework en POO avec l\'architecture MVC. ',
                     show: true,
-                    lien:'/tchat'
+                    lien:'http://localhost/template_shop'
                 },
                 {
                     name:"yanaswag",
