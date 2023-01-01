@@ -11630,6 +11630,9 @@ pre .code {
   text-decoration: none;
   color: #fff;
 }
+.img-logo {
+  height: 75px;
+}
 
 .custom-navbar .container {
   -webkit-box-flex: 1;
