@@ -23,7 +23,6 @@ $('#nav-toggle').click(function(){
     $(this).toggleClass('is-active')
     $('ul.nav').toggleClass('show');
 });
-
 let alertDiv = document.querySelector(".alert");
 //envoie d'un e-mail
 document.querySelector("form").addEventListener('submit',e=>{
