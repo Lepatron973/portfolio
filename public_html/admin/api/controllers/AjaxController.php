@@ -33,6 +33,9 @@
                     $this->controller->getAll($json);
                     $this->controller->sendResponse();
                  break;
+                 case "test":
+                    var_dump($_FILES);
+                 break;
                 case "updateProject":
                     if(!isset($_POST['image'])){ 
                         $_POST['image'] = $_FILES['image']['name'];
@@ -51,6 +54,22 @@
                 break;
                 case "connexion":
                     $this->controller->connexion($json);
+                    $this->controller->sendResponse();
+                break;
+                case "getAllPlugins":
+                    $this->controller->getAll();
+                    $this->controller->sendResponse();
+                break;
+                case "addPlugin":
+                    $this->controller->uploadPlugin();
+                    $this->controller->sendResponse();
+                break;
+                case "updatePlugin":
+                    $this->controller->update($json);
+                    $this->controller->sendResponse();
+                break;
+                case "deletePlugin":
+                    $this->controller->delete($json);
                     $this->controller->sendResponse();
                 break;
                 default:

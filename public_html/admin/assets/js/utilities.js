@@ -30,7 +30,7 @@ export function deleteProject(){
         ref: "id",
         value : parseInt($(this).parents('.card').prop('attributes').ref.value)
     }
-    fetch('./api/?path=projects&action=deleteProject',{
+    fetch('./?path=projects&action=deleteProject',{
     method:'POST',
     body: JSON.stringify(data)
    }).then(res=> generateProjectCard())
@@ -39,13 +39,13 @@ export function deleteProject(){
 ///////permet d'afficher les différents projet
 export async function generateProjectCard(){
     $('.card-container').html('');
-    let projects = await fetch('./api/?path=projects&action=getAllProjects').then(res=>res.json()).then(res=>res)
+    let projects = await fetch('./?path=projects&action=getAllProjects').then(res=>res.json()).then(res=>res)
     projects.map(project=>{
         $('.card-container').append(`
             <div class="card col-lg-5 col-md-7 col-10 m-3" ref=${project.id}>
                 <h3 class="card-header name">${project.name}</h3>
                 <div class="d-lg-flex p-3">
-                    <img src="./api/imgs/${project.image}" class="card-img image" style="height: 200px;width: 200px;" alt="...">
+                    <img src="./imgs/${project.image}" class="card-img image" style="height: 200px;width: 200px;" alt="...">
                     <div class="card-body">
                     <h6 class="card-title category">Catégorie: <span class="category_name">${project.category}</span></h6>
                     <h6 class="card-title type">Type: <span class="type_value">${project.type}</span></h6>
@@ -70,7 +70,7 @@ export function manageProject(action,id=null){
        
        switch ($(input).prop("type")) {
            case 'checkbox':
-               data.type = $(input).prop("checked") ? 'Professionel' : "Personnel";
+               data.type = $(input).prop("checked") ? 'Professionnel' : "Personnel";
                break;
            case 'file':
                data.image = $(input).prop("files")[0];
@@ -86,7 +86,7 @@ export function manageProject(action,id=null){
         formData.append(key,data[key]);
     
     };
-   fetch(`./api/?path=projects&action=${action}`,{
+   fetch(`./?path=projects&action=${action}`,{
         method: 'POST', // or 'PUT'
         body: formData,
    })
@@ -111,6 +111,84 @@ export function closeModal(){
     $('input[type=text]').val('')
     $('input[type=checkbox]').prop('checked',false)
     $('select').val(1)
+}
+
+////permet de générer des lien dans la bare lattérale
+
+export async function  generatePluginCard(){
+    $('.card-container').html('');
+let plugins = await fetch('./?path=plugin&action=getAllPlugins').then(res=>res.json()).then(res=>res);
+    plugins.map(plugin=>{
+        $('.card-container').append(`
+            <div class="card col-lg-5 col-md-7 col-10 m-3" ref=${plugin.id}>
+                <h3 class="card-header name">${plugin.name}</h3>
+                <div class="d-lg-flex p-3">
+                    <img src="../../plugins/${plugin.name}/${plugin.image}" class="card-img image" style="height: 200px;width: 200px;" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-api-key type">Clé API: <input type="text" class="form-control my-2 api-key" value="${plugin.api_key}" /></h6>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input input plugin-status" name="status" ${(plugin.status ? 'checked' : '')} type="checkbox" role="switch">
+                            <label class="form-check-label status-label">${(plugin.status ? 'Désactiver' : 'Activer')}</label>
+                        </div>
+                        <button  class="btn btn-warning edit-plugin my-2">modifer</button>
+                        <button  class="btn btn-danger del-plugin my-2">supprimer</button>
+                    </div>
+                </div>
+            </div>
+        `)
+        $('.plugin-status').on('click',(e)=>{
+            let status = $(e.target).prop('checked') == false ? 0 : 1 ;
+            fetch("./?path=plugin&action=updatePlugin",{
+                method: "POST",
+                body: JSON.stringify({id:plugin.id,status: status})
+            })
+            ($(e.target).prop('checked') ? $('.status-label').html('Désactiver') : $('.status-label').html('Activer'))
+        })
+        $('.del-plugin').on('click',()=>{
+            delPlugin(plugin.id,plugin.name);
+        })
+        $('.edit-plugin').on('click',()=>{
+            editPlugin(plugin.id,$('.api-key').val())
+        })
+       
+    })
+    
+}
+
+export function addPlugin(){
+    let formData = new FormData();
+    let plugin = $('.plugin-input').prop("files")[0];
+    formData.append('plugin',plugin);
+    fetch('./?path=plugin&action=addPlugin',{
+        method:'POST',
+        body:formData
+    }).then(res=> location.reload())
+}
+export function editPlugin(id,api_key){
+    let data = {
+        id: id,
+        api_key: api_key
+    }
+    if(api_key != ""){
+
+        fetch('./?path=plugin&action=updatePlugin',{
+            method:'POST',
+            body:JSON.stringify(data)
+        }).then(res=> generatePluginCard())
+    }
+    
+    
+}
+
+export function delPlugin(id,name){
+    let data = {
+        id: id,
+        name : name
+    }
+    fetch('./?path=plugin&action=deletePlugin',{
+    method:'POST',
+    body: JSON.stringify(data)
+   }).then(res=>location.reload())
 }
 
 

@@ -6,3 +6,4 @@ define("BDD_CONNECT", array(
     "password"=>"azerty"
 ));
 define("ROOT_DIR",dirname(__DIR__));
+define("VIEW_DIR",dirname(__DIR__)."/views");

@@ -9,9 +9,11 @@
     use Controllers\ProjectController;
     use Controllers\AjaxController;
     use Controllers\UserController;
+    use Controllers\PluginController;
+    use Controllers\DashboardController;
 
-    
-     if(isset($_GET['path'])){
+
+        if(isset($_GET['path'])){
 
         switch ($_GET['path']) {
             case 'projects':
@@ -22,9 +24,15 @@
                 $controller = new AjaxController(new UserController());
                 $controller->router($_GET['action']);
                 break;
-            
+            case 'plugin':
+                $controller = new AjaxController(new PluginController());
+                $controller->router($_GET['action']);
+                break;
             default:
-               
+               echo "test";
                 break;
         }
+    }else{
+        $controller = new DashboardController(['view'=>'home']);
+        $controller->display();
     }

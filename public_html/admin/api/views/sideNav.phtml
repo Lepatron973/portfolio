@@ -1,0 +1,14 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3 sidebar-sticky">
+        <ul class="nav flex-column">
+          <?php foreach($this->plugins as $plugin) : ?>
+          <li class="nav-item">
+            <a class="nav-link" href="#<?= $plugin['name'] ?>">
+              <span data-feather="layers" class="align-text-bottom"></span>
+              <?= $plugin['name'] ?>
+            </a>
+          </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </nav>

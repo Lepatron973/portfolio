@@ -6,7 +6,8 @@
     <meta name="description" content="Je suis Développeur FULL-STACK Freelance et je vous aident à réaliser vos projets web.
     ce site vous permettra de voir mes réalisations et permettra aussi de me contacter si besoin.">
     <meta name="author" content="Lepatron973">
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <title>Sunitronics</title>
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
@@ -65,7 +66,7 @@
             <!-- about wrapper -->
             <div class="about">
                 <div class="about-img-holder">
-                    <img src="assets/imgs/me.jpeg" class="about-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    <img src="assets/imgs/me.jpeg" class="about-img" alt="image du portfolio de jeremy par sunitronics">
                 </div>
                 <div class="about-caption">
                     <p class="section-subtitle">Qui es-tu ?</p>
@@ -78,7 +79,7 @@
                         Les projets que je prends en charge passe par la création de site vitrine, la création de boutique en ligne en passant par des CMS tels que:
                         (Wordpress / Shopify / Prestashop). Le développement d'outils personnalisés ainsi que la mise à jour de sites existants.             
                     </p>
-                    <a href="./projects/cv/index.html" target="_blank" class="btn-rounded btn btn-outline-primary mt-4">Voir mon CV</a>
+                    <a href="./admin/api/projects/cv/index.html" target="_blank" class="btn-rounded btn btn-outline-primary mt-4">Voir mon CV</a>
                 </div>              
             </div><!-- end of about wrapper -->
         </div><!-- end of container -->
@@ -94,7 +95,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="body">
-                            <img src="assets/imgs/pencil-case.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <img src="assets/imgs/pencil-case.svg" alt="image du portfolio de jeremy par sunitronics" class="icon">
                             <h6 class="title">Développement de Sites Vitrines</h6>
                             <p class="subtitle">Vous avez une activité physique et vous cherchez à donner plus de visibilité à cette dernière via internet ? Vous êtes au bon endroit.</p>
                         </div>
@@ -103,7 +104,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="body">
-                            <img src="assets/imgs/responsive.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <img src="assets/imgs/responsive.svg" alt="image du portfolio de jeremy par sunitronics" class="icon">
                             <h6 class="title">Développement de boutiques en ligne</h6>
                             <p class="subtitle">Vous avez une idée de boutique et il vous manque juste le développeur qui saura réaliser à ce projet ? Contactez-moi et il prendra vie.</p>
                         </div>
@@ -112,7 +113,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="body">
-                            <img src="assets/imgs/toolbox.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <img src="assets/imgs/toolbox.svg" alt="image du portfolio de jeremy par sunitronics" class="icon">
                             <h6 class="title">Amélioration de sites existants</h6>
                             <p class="subtitle">Votre site internet est déjà en ligne mais, il n'est plus à jour où vous cherchez peut-être à dynamiser ce dernier ? Je m'en occuperais avec plaisir.</p>
                         </div>
@@ -121,7 +122,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="body">
-                            <img src="assets/imgs/analytics.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <img src="assets/imgs/analytics.svg" alt="image du portfolio de jeremy par sunitronics" class="icon">
                             <h6 class="title">Accompagnement Personnalisé</h6>
                             <p class="subtitle">Vous voulez mettre en place un projet web et vous ne savez pas par où commencer ? Je vous accompagnerais tout au long du développement de celui-ci.
                             </p>
@@ -154,6 +155,19 @@
             </div><!-- end of row -->
         </div><!-- end of container -->
     </section> <!-- end of portfolio section -->
+     <!-- pricing section -->
+    <?php
+        
+        
+        if($plugins){
+            foreach ($plugins as $plugin) {
+                $_SESSION[$plugin['name']]['key'] = $plugin['api_key'];
+              if($plugin['status'])
+              echo file_get_contents($_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'plugins/'.$plugin['name'].'?key='.$plugin['api_key']);
+              
+            }
+        }
+    ?>
     <!-- contact section -->
     <section class="section" id="contact">
         <div class="container text-center">

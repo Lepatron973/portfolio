@@ -1,0 +1,44 @@
+<div class="modal " tabindex="-1">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            
+        <div class="mb-3">
+            <label class="form-label">Nom du projet</label>
+            <input type="text" name="name" class="form-control input project-name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Lien</label>
+            <input type="text" name="link" class="form-control input project-link">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Catégorie</label>
+            <select class="form-select input" name="category" aria-label="">
+            <option value="E-commerce">E-commerce</option>
+            <option value="Site vitrine">Site vitrine</option>
+            <option value="Portfolio">Portfolio</option>
+            <option value="Site dynamique">Site dynamique</option>
+            </select>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input input project-tag" name="type" type="checkbox" role="switch">
+            <label class="form-check-label">Pour un client</label>
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Image</label>
+            <input class="form-control input" name="image" type="file" id="formFile">
+        </div>
+                
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary save" action="edit">Enregistrer</button>
+        </div>
+    </div>
+    </div>
+</div>

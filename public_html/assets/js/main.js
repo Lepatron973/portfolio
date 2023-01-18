@@ -25,13 +25,13 @@ $('#nav-toggle').click(function(){
 });
 let alertDiv = document.querySelector(".alert");
 //envoie d'un e-mail
-document.querySelector("form").addEventListener('submit',e=>{
+document.querySelector(".contact-form").addEventListener('submit',e=>{
         e.preventDefault();
         sendMail()
     }
 )
 $('.nav-link').on('click',selectProject)
-fetch('/admin/api/?path=projects&action=getAllProjects').then(res=>res.json()).then(res=>{
+fetch('./admin/api/?path=projects&action=getAllProjects').then(res=>res.json()).then(res=>{
     res.map(project=>{
         $('.project-container').append(projectCard(project))
     })
