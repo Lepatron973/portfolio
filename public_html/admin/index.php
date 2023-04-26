@@ -1,4 +1,4 @@
 <?php
-    header('location: ./api/');
+    header('location: ../');
     
 

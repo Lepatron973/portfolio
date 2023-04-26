@@ -14,7 +14,7 @@
     <!-- Bootstrap + Meyawo main styles -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<body data-spy="scroll" data-target=".navbar" data-offset="40">
 
     <!-- Page Navbar -->
     <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
@@ -174,13 +174,13 @@
             <p class="section-subtitle">Comment te joindre ?</p>
             <h6 class="section-title mb-5">Contactez-moi</h6>
             <!-- contact form -->
-            <form action="http://mailadmin.alwaysdata.net/mail.php" class="contact-form col-md-10 col-lg-8 m-auto">
+            <form action="https://mailadmin.alwaysdata.net/mail.php" class="contact-form col-md-10 col-lg-8 m-auto">
                 <div class="form-row">
                     <div class="form-group col-sm-6">
                         <input type="text" size="50" class="form-control name" name="name" placeholder="Nom" required>                 
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="email" class="form-control email" name="email" placeholder="Email"requried>                 
+                        <input type="email" class="form-control email" name="email" placeholder="Email">
                     </div>
                     <div class="form-group col-sm-12">
                         <textarea id="comment" rows="6" name="message"  class="form-control message" placeholder="Message"></textarea>

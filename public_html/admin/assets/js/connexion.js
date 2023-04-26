@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(res=>{
             res = res[0];
             if(res.result){
-                localStorage.setItem('connexion',true)
                 document.querySelector('form').submit()
             }
             
